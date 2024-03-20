@@ -124,8 +124,8 @@ const fetchAndSaveTransactions = async (clientId, address) => {
     const curlCommand = `curl -sS --request GET \
         --url 'https://deep-index.moralis.io/api/v2.2/${address}/verbose?chain=eth&order=DESC' \
         --header 'accept: application/json' \
-        --header 'X-API-Key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjhkMzA4ZTcyLTU4ZjEtNDVhNi04OGJlLTg2YjEzYjJmZDdjNyIsIm9yZ0lkIjoiMzgzMjQ1IiwidXNlcklkIjoiMzkzNzg2IiwidHlwZUlkIjoiM2Q3MTFmOGUtNjRiNy00MTNhLTk3N2YtOGQ4MjZkNDJlNWUzIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MTA2Njg4ODYsImV4cCI6NDg2NjQyODg4Nn0.FC3c9L1nheTUYvOrkbJ8W0OSi5Fa2hRzcVlfZr_C4DY'`;
-        exec(curlCommand, async (error, stdout, stderr) => {
+        --header 'X-API-Key: ${process.env.X_API_Key}'`;
+exec(curlCommand, async (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
                 return;
